@@ -8,7 +8,6 @@ const main = async () => {
     // コントラクトが Mint され、ローカルのブロックチェーンにデプロイされるまで待ちます。
     await nftContract.deployed();
     console.log("Contract deployed to:", nftContract.address);
-
     let txn = await nftContract.mintIpfsNFT("poker","bafybeibewfzz7w7lhm33k2rmdrk3vdvi5hfrp6ol5vhklzzepfoac37lry");
     await txn.wait();
     let returnedTokenUri = await nftContract.tokenURI(0);
